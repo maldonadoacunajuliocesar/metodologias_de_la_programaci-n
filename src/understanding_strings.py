@@ -48,3 +48,44 @@ print(fullname)
 
 print ("Hola, " + fullname.title() + "!")
 print ("Hola, " + fullname.upper() + "!")
+
+# Practica 4 Syntax Error con Strings 
+
+message =  "Una fortaleza de Python es su comunidad" 
+print(message)
+
+message = "Una fortaleza de 'Python' es su comunidad"
+print(message) 
+
+# Practica 5 Concatenación convencional 
+
+famous_person = "Charly Mercury"
+quote = "Pyhton is love"
+
+message = famous_person + " una vez dijo " + quote
+print(message)
+
+# Practica 6 Concatenación con f-strings
+
+"""
+ () - Se llaman Paréntesis 
+ {} - Se llaman Llaves 
+ [] - Se llaman Corchetes
+"""
+message_f_string = f"{famous_person} una vez dijo {quote}"
+print(message_f_string) 
+
+# Actividad 
+
+"""
+ 1) Elige un persibaje famoso e igualalo a una varaible tipo string 
+ 2) Elige una frase famosa que haya dicho e igulalo a una variable tipo string
+ 3) Genera un mensaje con las dos varianles utilizando f-string 
+ 4) Imprime el mensaje 
+"""
+
+famous_person1 = "Nelson Mandela "
+quote1 = "La educación es el arma más poderosa que puedes usar para cambiar el mundo"
+
+message_1 = f"{famous_person1} una ves dijo {quote1}"
+print(message_1)
