@@ -29,12 +29,12 @@ charly_message = "Hola, Soy Charly y estoy aprendiendo Python! "
 print(charly_message)
 print(charly_message)
 
-"""""
+"""
 Tracebak: Es un registro de donde el interprete 
          tuvo problemas para ejecutar el código.
    Ejemplo: 
    Traceback (most recent call last):
-    File "C:\Users\julio\Proyects\metodologias_de_la_programaci-n\src\understanding_variables.py", line 30, in <module>
+    File "C:/Users\julio/Proyects/metodologias_de_la_programaci-n/src/understanding_variables.py", line 30, in <module>
     print(charly_mesage)
           ^^^^^^^^^^^^^
    NameError: name 'charly_mesage' is not defined. Did you mean: 'charly_message'?
@@ -42,4 +42,4 @@ Tracebak: Es un registro de donde el interprete
 NameError: Signigica que olvidamos establecr el valor de una variable
        antes de utilizar o cometimos un error al ingresar el nombre de la variable.
 
-"""""
+"""
