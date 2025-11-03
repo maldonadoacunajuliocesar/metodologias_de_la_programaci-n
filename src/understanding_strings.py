@@ -89,3 +89,28 @@ quote1 = "La educación es el arma más poderosa que puedes usar para cambiar el
 
 message_1 = f"{famous_person1} una ves dijo {quote1}"
 print(message_1)
+
+# Practica 7 Whitespace 
+"""
+Whitespace se refiere a cualquier caracter que no se imprime, es decir, un tabulador y finales de línea. Los whitespaces
+se utilizam comúnmente para organizar las salidad (prints) de tal manera que sea más amigable de leer o ver para los usuarios.
+"""
+# Ejemplos 
+print("Python")
+print("\tPython")  
+
+# Ejemplos Salto de línea
+print ("Languages: \n Python \n C \n JavaScript")
+
+# Eliminación de espacios en blanco 
+progrmamming_language = "   Python   "
+print(progrmamming_language)
+print(progrmamming_language.lstrip())  
+print(progrmamming_language.rstrip())
+print(progrmamming_language.strip())
+
+progrmamming_language = "   Python Javascrip "
+print(progrmamming_language)
+print(progrmamming_language.lstrip())  
+print(progrmamming_language.rstrip())
+print(progrmamming_language.strip())

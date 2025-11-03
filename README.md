@@ -1,2 +1,5 @@
-# metodologias_de_la_programaci-n
-Este es un repositorio para la materia de metodologías de la programación
+# Metodologias_de_la_programacion
+
+### ***Alumno: Julio César Maldonado Acuña***
+
+**Este es un repositorio para la materia de metodologías de la programación**
