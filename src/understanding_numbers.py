@@ -70,6 +70,8 @@ print (0.2+0.1)
 # Practica 3 Imprimir la edad de alguien 
 
 age = 35 
+message = "Julio tiene" + str(age) + "años."
+print(message)
 
 """
    message = "Charly tiene" + age + "años."  
@@ -82,3 +84,4 @@ age = 35
 
 message_f = f"Charly tiene  {age}  años."
 print (message_f)
+
