@@ -43,7 +43,7 @@ for value in range (1,11):
 print (squares) 
 
 # Métodos built - in para listas de números
-print ("\n Métodos built - in para listas de números")4
+print ("\n Métodos built - in para listas de números")
 digits = [1,2,3,4,5,6,7,8,9,0]
 print ("Lista de digitos:", digits)
 print ("Valor máximo:", max(digits)) # Valor máximo
