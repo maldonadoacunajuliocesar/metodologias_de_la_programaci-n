@@ -116,9 +116,9 @@ print (fruits[2].lower())
 
     # Tema 4.2 Ultimo elemento de una lista 
 
-print (fruits [-1])
-print (fruits [-2])
-print (fruits [-3])
+print (fruits [-1]) # Acceder al último elemento
+print (fruits [-2]) # Acceder al penúltimo elemento 
+print (fruits [-3]) # Acceder al antepenúltimo elemento
 
 # PREGUNTA DE EXAMEN ¿PORQUE UNA LISTA ES MUTABLE? Porque podemos cambiar sus elementos después de haberla creado.
 
@@ -151,4 +151,87 @@ motorcycles = ["Honda", "Yamaha", "Suzuki", "BMW"]
 print (motorcycles) 
 del motorcycles[0]
 print (motorcycles)
+
+    # Tema 4.5 Eliminar elementos de una lista igual a una variable
+
+        # pop(): Elimina y devuelve el último elemento de la lista.
+
+print ("\n Eliminar elementos de una lista: Meotod 'pop()' \n")
+motorcycles = ["Honda", "Yamaha", "Suzuki"]
+print (motorcycles)
+popped_motorcycles = motorcycles.pop()
+print (motorcycles)
+print(f"La moticicleta que fue eliminada es: {popped_motorcycles.title()}")
+
+    # Tema 4.6 Eliminar elementos de una lista pop (index)
+
+        # pop (index): Elimina y devuelve un elemento en una posición específica de la lista.
+
+print ("\n Eliminar elementos de una lista: Metodo 'pop(index)' \n")
+motorcycles = ["Honda", "Yamaha", "Suzuki"]
+print (motorcycles)
+first_owned = motorcycles.pop(0)
+print(motorcycles)
+print (f"La primera motocicleta que tuve fue una {first_owned.title()}.")
+
+    # Tema 4.7 Eliminar elemento de una lista por valor 
+        
+        # remove (): Elimina la primera aparición de un valor específico en la lista.
+print ("\n Eliminar elementos de una lista: Metodo 'remove()' \n")
+motorcycles = ["Honda", "Yamaha", "Suzuki", "Ducati"]
+print (motorcycles)
+motorcycles.remove("Ducati")
+print (motorcycles)
+
+    # Actvidad 
+name = ["ana", "juan", "pedro", "maria"]
+print (name)
+deleted_name = input("\n Ingrese el nombre que desea eliminar de la lista: \n")
+name.remove(deleted_name.strip().lower())
+print(name)
+
+    # Tema 4.8 Ordenar listas .sort() 'Ordenamiento Permanente'
+
+cars = ["BMW", "Audi", "Ford", "Kia"]
+print (f"\nLista normal {cars}")
+cars.sort()
+print (f"Lista de la A a Z {cars}")
+cars.sort(reverse = True)
+print (f"Lista al reves Z a A {cars}") 
+
+
+    # Tema 4.9 Ordenar reverse 
+
+motorcycles = ["Mortalica", "Harley Davidson", "Yamaha", "Suzuki"]
+print (f"\n{motorcycles}")
+motorcycles.reverse()
+print (motorcycles)
+
+    # Tema 4.10 Encontrar la longitud de una lista len() buit - in
+
+cars = ["BMW", "Audi", "Ford", "Kia"]
+print ("\nMetodo len ()")
+print (len(cars))
+
+    # Tema 4.11 Metodo built in sorted() - Ordenamiento temporal 
+
+favorite_students = ["Jorge", "Gerardo", "Carlos", "Jose"]
+print (favorite_students)
+
+print(sorted(favorite_students))
+print ("\n Lista original:", favorite_students)
+print ("\n Lista ordenada temporalmente:", sorted(favorite_students))
+print ("\n Lista original nuevamente:", favorite_students)
+print ("\n Lista ordenada temporalmente:", sorted(favorite_students, reverse = True))
+
+    # Tema 5 Slicing 
+
+        # Slice es trabajar con un grupo específico de elementos de una lista
+
+players = ["Cr7", "Messi", "Travis Kelce", "Chicharito", "Corona"]
+print (players [0:3]) # = Cr7 , Messi, Travis Kelce
+print (players [1:4]) # = Messi, Travis Kelcel, Chicharito
+print (players [2:]) # = Messi, Travis Kelce, Chicarito, Corona 
+print (players [-3:]) # = Travis Kelce, Chicharito, Corona
+
 
