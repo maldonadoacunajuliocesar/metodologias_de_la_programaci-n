@@ -234,4 +234,41 @@ print (players [1:4]) # = Messi, Travis Kelcel, Chicharito
 print (players [2:]) # = Messi, Travis Kelce, Chicarito, Corona 
 print (players [-3:]) # = Travis Kelce, Chicharito, Corona
 
+    # Tema 5.1 Slicing en for 
+
+players = ["cr7", "Messi", "Travis Kelce", "Chicarito", "Corona"]
+first_three_players = players [0:3]
+print ("First three players", first_three_players)
+
+print ("\nAqui vienen los tres mejores del salon: ")
+for player in players [0:3]:
+    print (player.upper())
+
+    # Tema 6 Copia de listas 
+"""
+my_food = ["Pizza", "Gorditas", "Machado"]
+copy_of_food = my_food [:]
+copy_of_food2 = my_food.coppy()
+copy_of_food3 = list(my_food)
+"""
+
+cars = ["bwm", "porch", "masda", "totoya", "ford"]
+cars [0] = "bmw"
+cars [1] = "porsche"
+cars [2] = "mazda"
+cars [3] = "toyota"
+print (cars)
+
+    # Tema 7 List Comprehensions 
+
+squares_list = [num **2 for num in range (10)]
+print (squares_list) 
+
+    # Tema 7.1 Números pares con el range 
+
+even_number_0_100 = list(range(0,101,2))
+
+    # Tema 7.2 Números pares utilizando list comprehension 
+even_list_compre = [value for value in range (0,101)if value %2 == 0]
+print (even_list_compre)
 
