@@ -107,4 +107,3 @@ if age >= 18:
 else: 
     print ("Tu eres menor de edad")
 
-

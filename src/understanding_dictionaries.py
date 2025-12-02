@@ -48,5 +48,15 @@ for value in favorite_languajes.values():
 
 # TAREA -  Investigar el nesting diccionario 
 # Listas de diccionarios 
+convenant_grunt = {
+    "color": "organe",
+    "weapon": "plasma-gun",
+    "armament": "plasma-granade",
+    "health": 2,
+}
+convenant_elite = {
+    "color"
+}
 # Listas en diccionarios 
 # Diccionarios en diccionarios 
+# Estudiar el metodo get () de los diccionarios 
