@@ -11,7 +11,7 @@
     1. ¿Qué es un string en Python? 
         Un string en Python es un tipo de dato que representa texto. 
         Son inmutables: no se pueden modificar directamente; cualquier cambio 
-         crea una nueva cadena.  
+        crea una nueva cadena.  
 
     2. ¿Qué operaciones básicas se pueden realizar?
         Con strings se pueden hacer operaciones básicas como concatenar textos, 
@@ -28,7 +28,7 @@
         validaciones aplicadas y el uso de métodos de string acompañado de casos 
         de prueba ejecutables dentro del script.
 """
-# PRINCIPIOS Y BUENAS PRÁCTICAS
+# PRINCIPIOS Y BUENAS PRÁCTICAS:
 """
     1. Los strings son inmutables: cualquier operación crea una nueva cadena.
     2. Es buena práctica normalizar entradas con strip() y lower() antes de comparar.
