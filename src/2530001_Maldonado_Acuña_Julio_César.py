@@ -1,293 +1,437 @@
 
-# CRUD en Python
+# Manejo de funciones en Python
 
     # Alumno: Julio César Maldonado Acuña 
     # Matrícula: 2530001 
     # Grupo: 1-2
 
-# RESUMEN EJECUTIVO 
+# RESUMEN EJECUTIVO
 """
-    1. ¿Qué es un CRUD y qué significan Create, Read, Update, Delete?
-        CRUD es un acrónimo que representa las operaciones básicas sobre datos: Crear (Create), Leer (Read),
-        Actualizar (Update) y Eliminar (Delete). Estas operaciones son fundamentales en el manejo de cualquier base 
-        de datos o estructura de almacenamiento de información.
+    1. ¿Qué es una función en Python y para qué sirve?
+        Una función en Python es un bloque de código reutilizable que realiza una tarea específica. Las funciones permiten 
+        organizar y modularizar el código, lo que facilita su mantenimiento y reutilización.
 
-    2. ¿Qué estructura de datos elegiste (dict o list de dicts) y por qué?
-        Elegí utilizar un diccionario donde cada clave es un identificador único (`item_id`) y el valor es otro 
-        diccionario que contiene los detalles del producto como `name`, `price`, y `quantity`. Esto permite un acceso 
-        rápido y eficiente a cada producto utilizando su identificador único.
+    2. ¿Qué diferencia hay entre parámetros (definition) y argumentos (call)?
+        Los parámetros son las variables definidas en la declaración de la función, mientras que los argumentos son los 
+        valores que se pasan a la función cuando se llama.
 
-    3. ¿Cómo te ayuda usar funciones para organizar la lógica del CRUD?
-        El uso de funciones permite dividir el programa en partes independientes, lo que facilita la comprensión, 
-        reutilización y mantenimiento del código. Cada operación CRUD es encapsulada en su propia función, manteniendo 
-        el código modular y fácil de extender.
+    3. ¿Por qué es útil separar la lógica en funciones reutilizables?
+        Separar la lógica en funciones hace que el código sea más limpio, modular y reutilizable. Esto facilita la 
+        depuración y el mantenimiento del código, además de permitir su reutilización en diferentes partes del programa.
 
-    4. ¿Qué cubre tu programa?
-        El programa cubre un menú principal que permite al usuario interactuar con el CRUD. Las operaciones de creación, 
-        lectura, actualización y eliminación de elementos están implementadas como funciones separadas que interactúan 
-        con una estructura de datos (diccionario o lista de diccionarios) para gestionar los productos.
+    4. ¿Qué es un valor de retorno y por qué es mejor devolver resultados en lugar de solo imprimirlos?
+        Un valor de retorno es el valor que una función regresa cuando termina su ejecución. Es mejor devolver resultados 
+        porque permite que la función sea utilizada en diferentes contextos y se pueda manipular el valor antes de ser mostrado.
+
+    5. ¿Qué cubrirá tu documento?
+        Este documento cubre la descripción de cada problema, el diseño de funciones, las entradas y salidas, las validaciones 
+        y los casos de prueba básicos para cada uno de los problemas planteados.
 """
+
 # PRINCIPIOS Y BUENAS PRÁCTICAS
-
 """
-    1. Usar funciones para cada operación CRUD para mantener el código limpio y organizado.
-    2. Validar las entradas para evitar datos incorrectos o mal formateados, como precios negativos o IDs duplicados.
-    3. Utilizar estructuras de datos como diccionarios para un acceso rápido a los elementos mediante sus claves únicas.
-    4. Mostrar mensajes claros al usuario indicando el éxito o error de las operaciones.
+    1. Preferir funciones pequeñas que hagan una sola cosa (single responsibility).
+    2. Evitar repetir código: si copias/pegas lógica, considera extraerla en una función.
+    3. Intentar que las funciones sean “puras” cuando sea posible (mismo input -> mismo output, sin efectos secundarios externos).
+    4. Documentar con comentarios simples qué hace cada función y qué parámetros espera.
+    5. Dar nombres claros a las funciones (calculate_bmi, not f1 o do_it).
 """
 
-# PROBLEM 1: In-memory CRUD manager with functions
+# PROBLEM 1: Rectangle area and perimeter
 
     # Description:
-        # Program that implements a simple CRUD system (Create, Read,
-        # Update, Delete) for items stored in a dictionary and/or list.
-        # Each CRUD operation is handled by its own function, and the user
-        # interacts with the system through a text-based menu.
+        #Define dos funciones
+        # - calculate_area(width, height): regresa el área de un rectángulo.
+        # - calculate_perimeter(width, height): regresa el perímetro.
+        # El código principal debe leer (o definir) los valores, llamar a las 
+        # funciones y mostrar los resultados.
     # Inputs:
-        # - Menu options selected by the user (string or int)
-        # - For CREATE/UPDATE: item_id, name, price, quantity
-        # - For READ/DELETE: item_id
+        # - width (float)
+        # - height (float)
     # Outputs:
-        # - Messages indicating the result of each operation, such as:
-        # - "Item created", "Item updated", "Item deleted",
-        # - "Item not found", "Items list:", etc.
-    # Validations:
-        # - Menu option must be valid (for example, 0..4 or 0..5)
-        # - item_id must not be an empty string
-        # - Numeric fields (price, quantity) must be valid numbers >= 0
-        # - Prevent creating items using an existing item_id
-        # - For READ/UPDATE/DELETE: if item_id does not exist,
-        #   display "Item not found"
-
-# TEST CASE:
+        # - "Area:" <area_value>
+        # - "Perimeter:" <perimeter_value>
+    # Validations:  
+        # - width > 0
+        # - height > 0
+        # - Si alguna condición no se cumple, mostrar "Error: invalid input" y no llamar a las funciones.
+# TESTE CASES:
      # Normal:
-"""
------ MENU -----
-1) Create item
-2) Read item by ID
-3) Update item by ID
-4) Delete item by ID
-5) List all items
-0) Exit
-Choose an option: 1
-Enter item ID: 001
-Enter item name: Laptop
-Enter item price: 1000
-Enter item quantity: 5
-Item created
-
------ MENU -----
-1) Create item
-2) Read item by ID
-3) Update item by ID
-4) Delete item by ID
-5) List all items
-0) Exit
-Choose an option:
-"""
+#    Input: width = 5, height = 3
+#    Output: Area: 15 | Perimeter: 16
+#
      # Border:
-"""
-
------ MENU -----
-1) Create item
-2) Read item by ID
-3) Update item by ID
-4) Delete item by ID
-5) List all items
-0) Exit
-Choose an option: 1
-Enter item ID: 002
-Enter item name: Smartwatch
-Enter item price: 200
-Enter item quantity: 15
-Error: item ID already exists
-
-"""
+#    Input: width = 1, height = 1
+#    Output: Area: 1 | Perimeter: 4
+#
      # Error:
-"""
------ MENU -----
-1) Create item
-2) Read item by ID
-3) Update item by ID
-4) Delete item by ID
-5) List all items
-0) Exit
-Choose an option: 1
-Enter item ID:
-Error: invalid input
-
-"""
+#    Input: width = -2, height = 4
+#    Output: Error: invalid input
 
 # CODE:
 
-def create_item(items, item_id, name, price, quantity):
-    """Creates a new item if item_id does not already exist."""
-    if item_id in items:
-        return False  # Duplicate ID not allowed
-    items[item_id] = {
-        "name": name,
-        "price": price,
-        "quantity": quantity
+def calculate_area(width, height):
+    return width * height
+
+def calculate_perimeter(width, height):
+    return 2 * (width + height)
+
+
+try:
+    width = float(input("Enter width: "))
+    height = float(input("Enter height: "))
+
+    if width > 0 and height > 0:
+        area = calculate_area(width, height)
+        perimeter = calculate_perimeter(width, height)
+
+        print("Area:", area)
+        print("Perimeter:", perimeter)
+    else:
+        print("Error: invalid input")
+
+except ValueError:
+    print("Error: invalid input")
+
+# PROBLEM 2: Grade classifier
+    # Description:
+        # Define una función classify_grade(score) que reciba una calificación numérica 
+        # (0–100) y regrese una categoría:
+        # - "A" si score >= 90
+        # - "B" si 80 <= score < 90
+        # - "C" si 70 <= score < 80
+        # - "D" si 60 <= score < 70
+        # - "F" si score < 60
+        # El código principal debe llamar la función y mostrar el resultado.
+    # Inputs:
+        # - score (float or int)
+    # Outputs:
+        # - "Score:" <score>
+        # - "Category:" <grade_letter>
+        # - If invalid: "Error: invalid input"
+    # Validations:
+        # - score must be convertible to float
+        # - score must be between 0 and 100
+
+# TEST CASES:
+     # Normal:
+#    Input: 85
+#    Output: Score: 85 | Category: B
+#
+     # Border:
+#    Input: 90
+#    Output: Score: 90 | Category: A
+#
+     # Error:
+#    Input: -5
+#    Output: Error: invalid input
+
+# CODE:
+
+def classify_grade(score):
+    if score >= 90:
+        return "A"
+    elif score >= 80:
+        return "B"
+    elif score >= 70:
+        return "C"
+    elif score >= 60:
+        return "D"
+    else:
+        return "F"
+
+
+try:
+    score = float(input("Enter score (0-100): "))
+
+    if 0 <= score <= 100:
+        letter = classify_grade(score)
+        print("Score:", score)
+        print("Category:", letter)
+    else:
+        print("Error: invalid input")
+
+except ValueError:
+    print("Error: invalid input")
+
+# PROBLEM 3: - List statistics function (min, max, average)
+
+    # Description:
+        # Define una función summarize_numbers(numbers_list) que reciba una lista de números y regrese un diccionario con:
+        #- "min": mínimo
+        # - "max": máximo
+        # - "average": promedio (float)
+        # El código principal debe construir la lista (por ejemplo, a partir de 
+        # texto separado por comas), llamar la función y mostrar los valores.
+    # Inputs:
+        # - numbers_text (string, e.g., "10,20,30")
+        # - numbers_list (list of float or int, created internally)
+    # Outputs:
+        # - "Min:" <min_value>
+        # - "Max:" <max_value>
+        # - "Average:" <average_value>
+        # - If invalid: "Error: invalid input"
+    # Validations:
+        # - numbers_text must not be empty
+        # - numbers_list must not be empty
+        # - all values must be valid number
+# TEST CASE:
+     # Normal:
+#    Input: "10,20,30"
+#    Output: Min: 10 | Max: 30 | Average: 20.0
+#
+     # Border:
+#    Input: "5"
+#    Output: Min: 5 | Max: 5 | Average: 5.0
+#
+     # Error:
+#    Input: "10,abc,30"
+#    Output: Error: invalid input
+
+# CODE:
+
+def summarize_numbers(numbers_list):
+    info = {
+        "min": min(numbers_list),
+        "max": max(numbers_list),
+        "average": sum(numbers_list) / len(numbers_list)
     }
-    return True
+    return info
 
 
-def read_item(items, item_id):
-    """Returns the item dictionary if found, otherwise None."""
-    return items.get(item_id)
+numbers_text = input("Enter numbers separated by commas: ").strip()
 
+if numbers_text == "":
+    print("Error: invalid input")
+else:
+    try:
+        parts = numbers_text.split(",")
+        numbers_list = []
 
-def update_item(items, item_id, new_name, new_price, new_quantity):
-    """Updates an existing item. Returns True if successful."""
-    if item_id not in items:
-        return False
-    items[item_id]["name"] = new_name
-    items[item_id]["price"] = new_price
-    items[item_id]["quantity"] = new_quantity
-    return True
+        for p in parts:
+            num = float(p)
+            numbers_list.append(num)
 
-
-def delete_item(items, item_id):
-    """Deletes an item by id. Returns True if successful."""
-    if item_id not in items:
-        return False
-    del items[item_id] 
-    return True
-
-
-def list_items(items):
-    """Prints all items in a readable format."""
-    if not items:
-        print("No items available.")
-        return
-    print("Items list:")
-    for item_id, data in items.items():
-        print(f"- ID: {item_id}, Name: {data['name']}, Price: {data['price']}, Quantity: {data['quantity']}")
-
-def main():
-    items = {}  # Main data structure
-
-    while True:
-        print("\n----- MENU -----")
-        print("1) Create item")
-        print("2) Read item by ID")
-        print("3) Update item by ID")
-        print("4) Delete item by ID")
-        print("5) List all items")
-        print("0) Exit")
-
-        option = input("Choose an option: ").strip()
-
-        # Validate menu option
-        if option not in ["0", "1", "2", "3", "4", "5"]:
+        if len(numbers_list) == 0:
             print("Error: invalid input")
-            continue
+        else:
+            stats = summarize_numbers(numbers_list)
+            print("Min:", stats["min"])
+            print("Max:", stats["max"])
+            print("Average:", stats["average"])
 
-        if option == "0":
-            print("Exiting program...")
-            break
+    except ValueError:
+        print("Error: invalid input")
 
-        # CREATE 
-        if option == "1":
-            item_id = input("Enter item ID: ").strip()
-            if item_id == "":
-                print("Error: invalid input")
-                continue
+# Problem #: 4 - Apply discount list (pure function)
 
-            name = input("Enter item name: ").strip()
-            if name == "":
-                print("Error: invalid input")
-                continue
+    # Description:
+        # Define una función apply_discount(prices_list, discount_rate) que:
+        # - reciba una lista de precios (float) y una tasa de descuento (por ejemplo, 0.10 para 10%)
+        # - regrese una nueva lista con los precios ya descontados (no modificar la lista original).
+        # El código principal debe:
+        #- Crear una lista de precios.
+        # - Llamar a la función.
+        #- Mostrar la lista original y la nueva lista con descuento.
+    # Inputs:
+        # - prices_text (string, e.g., "100,200,300")
+        # - discount_rate (float between 0 and 1)
+    # Outputs:
+        # - "Original prices:" <original_list>
+        # - "Discounted prices:" <discounted_list>
+        # - If invalid: "Error: invalid input"
+    # Validations:
+        # - prices_text not empty
+        # - all prices > 0
+        # - discount_rate between 0 and 1
+        # - list must not be empty
 
+# TEST CASE:
+     # Normal:
+#    Input: "100,200,300", discount_rate = 0.10
+#    Output: Original prices: [100.0, 200.0, 300.0]
+#            Discounted prices: [90.0, 180.0, 270.0]
+     # Border:
+#    Input: "50", discount_rate = 0
+#    Output: Original prices: [50.0]
+#            Discounted prices: [50.0]
+
+     # Error:
+#    Input: "100,abc,300", discount_rate = 0.20
+#    Output: Error: invalid input
+
+# CODE:
+
+def apply_discount(prices_list, discount_rate):
+    new_list = []
+    for price in prices_list:
+        new_price = price * (1 - discount_rate)
+        new_list.append(new_price)
+    return new_list
+
+
+prices_text = input("Enter prices separated by commas: ").strip()
+
+if prices_text == "":
+    print("Error: invalid input")
+else:
+    try:
+        parts = prices_text.split(",")
+        prices_list = []
+
+        for p in parts:
+            price = float(p)
+            if price <= 0:
+                raise ValueError
+            prices_list.append(price)
+
+        if len(prices_list) == 0:
+            print("Error: invalid input")
+        else:
             try:
-                price = float(input("Enter item price: "))
-                quantity = int(input("Enter item quantity: "))
-                if price < 0 or quantity < 0:
+                discount_rate = float(input("Enter discount rate (0 to 1): "))
+                if discount_rate < 0 or discount_rate > 1:
                     print("Error: invalid input")
-                    continue
-            except:
+                else:
+                    discounted = apply_discount(prices_list, discount_rate)
+                    print("Original prices:", prices_list)
+                    print("Discounted prices:", discounted)
+            except ValueError:
                 print("Error: invalid input")
-                continue
 
-            if create_item(items, item_id, name, price, quantity):
-                print("Item created")
-            else:
-                print("Error: item ID already exists")
+    except ValueError:
+        print("Error: invalid input")
 
-        # READ 
-        elif option == "2":
-            item_id = input("Enter item ID to read: ").strip()
-            item = read_item(items, item_id)
-            if item:
-                print(f"Item found: Name = {item['name']}, Price = {item['price']}, Quantity = {item['quantity']}")
-            else:
-                print("Item not found")
+# Problem #: 5 - Greeting function with default parameters
+    # Description:
+        # Define una función greet(name, title="") que:
+        # - Concatene opcionalmente el título antes del nombre (por ejemplo, "Dr. Alice", "Eng. Bob").
+        #- Regrese el mensaje: "Hello, <full_name>!"
+        # Si title está vacío, solo usar el nombre. El código principal debe llamar a l
+        # a función usando argumentos posicionales y nombrados.
+    # Inputs:
+        # - name (string)
+        # - title (string, optional)
+    # Outputs:
+        # - "Greeting:" <greeting_message>
+        # - If invalid: "Error: invalid input"
 
-        # UPDATE 
-        elif option == "3":
-            item_id = input("Enter item ID to update: ").strip()
-            if item_id not in items:
-                print("Item not found")
-                continue
-
-            new_name = input("Enter new name: ").strip()
-            if new_name == "":
-                print("Error: invalid input")
-                continue
-
-            try:
-                new_price = float(input("Enter new price: "))
-                new_quantity = int(input("Enter new quantity: "))
-                if new_price < 0 or new_quantity < 0:
-                    print("Error: invalid input")
-                    continue
-            except:
-                print("Error: invalid input")
-                continue
-
-            if update_item(items, item_id, new_name, new_price, new_quantity):
-                print("Item updated")
-            else:
-                print("Item not found")
-
-        # DELETE 
-        elif option == "4":
-            item_id = input("Enter item ID to delete: ").strip()
-            if delete_item(items, item_id):
-                print("Item deleted")
-            else:
-                print("Item not found")
-
-        # LIST
-        elif option == "5":
-            list_items(items)
-
-
-# Run the program
-if __name__ == "__main__":
-    main()
-# CONCLUSIONES
-"""
-    El uso de funciones facilitó la organización del código y la implementación de cada operación CRUD de manera independiente. 
-    Utilizar un diccionario como estructura de datos permitió un acceso eficiente y rápido a los elementos mediante sus identificadores 
-    únicos. Los casos de validación fueron esenciales para garantizar la integridad de los datos y evitar errores, como IDs duplicados 
-    o inexistentes. Este CRUD podría extenderse para manejar una base de datos o integrar características adicionales como búsqueda 
-    avanzada y almacenamiento persistente.
-"""
-# REFERENCES
-# 1) Python Official Documentation – Data Structures
-#    https://docs.python.org/3/tutorial/datastructures.html
+    # Validations:
+        # - name not empty after strip()
+        # - title can be empty, but should be stripped
+# TEST CASE:
+     # Normal:
+#    Input: name="Alice", title="Dr."
+#    Output: Greeting: Hello, Dr. Alice!
 #
-# 2) Python Official Documentation – Functions
+     # Border:
+#    Input: name="Bob", title="" 
+#    Output: Greeting: Hello, Bob!
+#
+     # Error:
+#    Input: name="" (after strip)
+#    Output: Error: invalid input
+
+# CODE:
+
+def greet(name, title=""):
+    if title == "":
+        full_name = name
+    else:
+        full_name = title + " " + name
+    return f"Hello, {full_name}!"
+
+
+name = input("Enter name: ").strip()
+
+if name == "":
+    print("Error: invalid input")
+else:
+    title = input("Enter title (optional): ").strip()
+
+    # title can be empty, so no strict validation needed
+    message = greet(name, title)
+    print("Greeting:", message)
+
+# Problem #: 6
+    # Description:
+        # Define una función factorial(n) que regrese n! (n factorial). Puedes implementarla de forma iterativa (con for) o recursiva, pero debes documentar tu elección en comentarios. El código principal debe:
+        #- Leer/definir n.
+        #- Validar n.
+        #- Llamar a factorial(n).
+        #- Mostrar el resultado.
+    # Inputs:
+        #  n (int)
+    # Outputs:
+        # - "n:" <n>
+        # - "Factorial:" <factorial_value>
+    # Validations:
+        # - n must be an integer.
+        # - n >= 0.
+        # - Optional limit: n <= 20 to avoid excessively large values.
+# TEST CASE:
+     # Normal:
+#    Input: 5
+#    Output: Factorial: 120
+     # Border:
+#    Input: 0
+#    Output: Factorial: 1
+
+     # Error:
+#    Input: -3
+#    Output: Error: invalid input
+
+# CODE
+def factorial(n):
+    """
+    Iterative factorial function:
+    factorial(0) = 1
+    factorial(n) = 1 * 2 * ... * n
+    """
+    result = 1
+    for i in range(1, n + 1):
+        result *= i
+    return result
+
+
+try:
+    n_text = input("Enter an integer n: ").strip()
+
+    if not n_text.lstrip("-").isdigit():
+        print("Error: invalid input")
+    else:
+        n = int(n_text)
+
+        if n < 0 or n > 20:
+            print("Error: invalid input")
+        else:
+            value = factorial(n)
+            print("n:", n)
+            print("Factorial:", value)
+
+except:
+    print("Error: invalid input")
+
+# CONCLUSIÓN
+"""
+    Las funciones ayudan a organizar el código, haciéndolo modular y reutilizable. 
+    Devolver resultados con `return` permite manipular los valores de salida y hacer 
+    uso de los resultados en diversas partes del programa, mientras que solo imprimirlos 
+    limita su reutilización. Usar parámetros con valores por defecto hace el código más 
+    flexible, permitiendo que las funciones manejen entradas opcionales. Encapsular cálculos 
+    repetidos en funciones facilita el mantenimiento del código y mejora la legibilidad.
+"""
+# REFERENCIAS
+# 1) Python Official Documentation – Functions:
 #    https://docs.python.org/3/tutorial/controlflow.html#defining-functions
-#
-# 3) Real Python – Dictionaries in Python
-#    https://realpython.com/python-dicts/
-#
-# 4) W3Schools – Python Functions Tutorial
+# 2) W3Schools – Python Functions Tutorial:
 #    https://www.w3schools.com/python/python_functions.asp
-#
-# 5) Programiz – Python Dictionary (Beginner Guide)
-#    https://www.programiz.com/python-programming/dictionary
+# 3) Real Python – Defining and Using Functions:
+#    https://realpython.com/defining-your-own-python-function/
+# 4) GeeksforGeeks – Python Functions:
+#    https://www.geeksforgeeks.org/python-functions/
+# 5) Programiz – Python Function Examples:
+#    https://www.programiz.com/python-programming/function
 
-# Repositorio de GitHub
+# REPOSITORIO DE GITHUB
+
