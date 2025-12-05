@@ -6,24 +6,113 @@
 
 # RESUMEN EJECUTIVO 
 
-# PROBLEM 1: Shopping list basics (list operations)
 """
-try:
-    initial_items_text = input("Ingresa la lista de productos: ")
+    1. ¿Qué es una lista, una tupla y un diccionario en Python y en qué se diferencian?
+        Lista: Es una colección ordenada y mutable de elementos. Puedes modificar, 
+        agregar o eliminar elementos en una lista después de haberla creado. 
+        Se define usando corchetes [], por ejemplo: mi_lista = [1, 2, 3].
 
-    if len(initial_items_text) == 0:
-        print ("Error: Invalid Input")
+        Tupla: Es una colección ordenada, pero inmutable, lo que significa que una 
+        vez creada no puedes modificar sus elementos. Se define usando paréntesis (), 
+        por ejemplo: mi_tupla = (1, 2, 3).
+
+        Diccionario: Es una colección no ordenada que asocia claves con valores. 
+        Cada elemento se representa como un par clave-valor, y se define usando llaves {}, 
+        por ejemplo: mi_diccionario = {"a": 1, "b": 2}.
+
+        Diferencias:
+        Las listas y tuplas son ordenadas, pero las listas son mutables (puedes 
+        cambiar sus elementos) y las tuplas no (son inmutables).
+
+        Los diccionarios son no ordenados (aunque en versiones más recientes de 
+        Python mantienen el orden de inserción) y permiten almacenar pares clave-valor, 
+        lo que no es posible en listas o tuplas.
+
+    2. ¿Qué significa que una lista sea mutable y una tupla inmutable?
+        Mutable (Lista): Significa que puedes cambiar los valores dentro de la 
+        lista después de haberla creado. Puedes agregar, eliminar o modificar los elementos. 
+        Ejemplo: mi_lista[0] = 10 cambiaría el primer elemento de la lista.
+
+        Inmutable (Tupla): Significa que una vez que la tupla se ha creado, 
+        no puedes cambiar, agregar o eliminar elementos de ella. Ejemplo: mi_tupla[0] = 10 
+        generaría un error porque las tuplas no permiten modificaciones.
+
+    3. ¿Cómo se usan los diccionarios para asociar claves con valores?
+        En un diccionario, cada clave se asocia a un valor específico. 
+        Puedes acceder a los valores a través de sus claves. Las claves deben ser únicas y,
+        generalmente, son de tipos inmutables como cadenas o números, 
+        mientras que los valores pueden ser de cualquier tipo.
+
+    4. ¿Qué cubrirá tu documento?
+        El documento incluirá una descripción de cada problema, especificando cómo se usan 
+        las listas, tuplas y diccionarios en diferentes contextos prácticos, como catálogos,
+        registros y estadísticas. Se detallarán las entradas y salidas de cada problema, las 
+        validaciones necesarias y cómo cada estructura de datos contribuye a resolver cada tarea,
+        como almacenar y acceder a información de manera eficiente.
+"""
+
+# PRINCIPIOS Y BUENAS PRÁCTICAS 
+"""
+    1. Usar listas cuando necesites agregar o eliminar elementos con frecuencia.
+    2. Usar tuplas para datos que no deben cambiar (por ejemplo, coordenadas, fechas, configuraciones fijas).
+    3. Usar diccionarios cuando necesites buscar información por una clave (por ejemplo, por nombre, id, código).
+    4. Evitar modificar una lista mientras la recorres con un for, a menos que sepas exactamente lo que haces.
+    5. Usar nombres de claves descriptivos en los diccionarios (por ejemplo, "name", "age", "price").
+    6. Escribir código legible y mensajes claros para el usuario.
+"""
+# PROBLEM 1: Shopping list basics (list operations)
+
+   # Description:
+       # Trabaja con una lista de productos (strings) y sus cantidades (enteros). El programa debe:
+         # 1) Crear una lista inicial de productos.
+         # 2) Permitir agregar un nuevo producto al final.
+         # 3) Mostrar la cantidad total de elementos en la lista.
+         # 4) Verificar si un producto específico está en la lista (booleano is_in_list).
+   # Inputs: 
+       # initial_items_text (string; por ejemplo, "apple,banana,orange").
+       # new_item (string; producto a agregar).
+       # search_item (string; producto a buscar).
+   # Outputs: 
+       #  "Items list:" <items_list>
+       # "Total items:" <len_list>
+       # "Found item:" true|false
+   # Validations:
+       # - initial_items_text no vacío tras strip().
+       # - Separar la cadena por comas y eliminar espacios extra en cada elemento.
+       # - new_item y search_item no vacíos.
+       # - Manejar el caso de lista inicial vacía si el estudiante lo decide (documentar decisión).
+
+# TEST CASES: 
+     # Normal:
+
+# CODE
+try:
+    print("\nShopping list basics:\n")
+
+    initial_items_text = input("Enter initial items: ").strip()
+
+    if initial_items_text:  
+        items_list = [item.strip() for item in initial_items_text.split(",")]
     else:
-        items_lists = initial_items_text.split(",")
-        items_lists = [item.strip() for item in items_lists if item.strip() != ""]
-        print(items_lists)
+        items_list = []
+
+        new_item = input("Enter item to add: ").strip()
+        if new_item:
+            items_list.append(new_item)
+            search_item = input("Enter item to search: ").strip()
+
+            is_in_list = search_item in items_list
+
+            print(f"Items list: {items_list}")
+            print(f"Total items: {len(items_list)}")
+            print(f"Found item: {is_in_list}")
 
 except ValueError:
     print ("Error: Invalid Input")
 except KeyboardInterrupt:
     print ("Error: Invalid Input")
 
-
+"""
 # PROBLEM 2: Points and distance with tuples
 try:
 
@@ -133,7 +222,7 @@ except ValueError:
     print ("Error: Invalid Input")
 except KeyboardInterrupt:
     print ("Error: Invalid Input 2")
-"""
+
 # PROBLEM 6: Simple contact book (disctionary CRUD)
 try:
     contac_book = {
@@ -178,3 +267,4 @@ try:
                 print ("Error: Contact not found")
 except KeyboardInterrupt:
     print("Error: Invalid Input")
+"""
