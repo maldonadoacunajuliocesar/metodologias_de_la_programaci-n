@@ -460,3 +460,4 @@ entender cómo gestionar la estructura de datos de forma más compleja.
 - https://share.google/53nVlug0MujfCzQ3j
 """
 # REPOSITORIO DE GITHUB
+# https://github.com/maldonadoacunajuliocesar/metodologias_de_la_programaci-n/blob/main/src/Manejo_de_Bucles_Tarea_4.py
