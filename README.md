@@ -49,7 +49,7 @@
 
 > **Proyecto desarrollado por el equipo:**
 
-- Julio César Maldonado Acuña  
+- Julio César Maldonado Acuña  - 2530001
 - Roberto Emiliano Ortiz Cumpian  
 - Ricardo Martin Pugliesse Macias  
 - Felipe Pinzon Segura  
@@ -84,8 +84,45 @@ código, esquemas eléctricos, pruebas y conclusiones.
 
 | Componente                  | Función                                         |
 |----------------------------|-------------------------------------------------|
-| ESP32                      | Control principal / procesamiento               |
+| ESP32 S3                   | Control principal / procesamiento               |
 | Driver L298N               | Control de dos motores DC (puente H doble)     |
 | 2 Motores DC               | Tracción y dirección del carrito               |
 | Pack 6×AA NiMH (7.2–8 V)   | Fuente de energía para los motores             |
-| Cable USB
+| Pilas 9v                   | Alimentación de ESP32 S3                       |
+| Regulador de Voltaje 7805  | Regulación de alimentación de ESP32 S3         |
+| Celular con app BLE (UART) | Envío de comandos de movimiento                |
+| Chasis de carrito          | Soporte estructural de todos los componentes   |
+| Cables jumper / protoboard | Conexiones eléctricas                          |
+
+---
+
+## Arquitectura del sistema 🧠
+
+```text
+          CELULAR
+        (App BLE UART)
+               |
+           Bluetooth
+               |
+        +------v-------+
+        |    ESP32     |
+        | MicroPython  |
+        +---+-------+--+
+            |       |
+      PWM Tracción  PWM Dirección
+            |       |
+       +----v-------v----+
+       |      L298N      |
+       |  Puente H x2    |
+       +----+-------+----+
+            |       |
+      Motor Tracción   Motor Dirección
+         (DC)              (DC)
+
+     Pack baterías (6xAA NiMH)
+          +Vmot  y  GND
+               |
+           L298N GND
+               |
+           ESP32 GND
+        (tierra común)
