@@ -1,18 +1,10 @@
-<!-- LOGO + TÍTULO EN LA MISMA LÍNEA (IZQUIERDA) -->
+<!-- LOGO / TÍTULO -->
 <p align="left">
-  <!-- La imagen debe estar en la misma carpeta que el README -->
-  <img src="carrito.png"
-       alt="Carrito Bluetooth"
-       width="120"
-       style="vertical-align:middle; margin-right:12px;">
-
-  <span style="font-size:2.3rem;
-               font-weight:700;
-               color:#0d47a1;
-               vertical-align:middle;">
-    Carrito Bluetooth
-  </span>
+  <!-- La imagen debe llamarse 'carrito.png' y estar en la misma carpeta que este README -->
+  <img src="carrito.png"alt="Carrito ESP32 + L298N" width="220">
 </p>
+
+<h1 align="center" style="color:#0d47a1;"> CARRITO BLUETOOOTH </h1>
 
 <p align="center" style="color:#1565c0;">
   Carrito controlado con ESP32, driver L298N y un celular vía Bluetooth.
@@ -60,7 +52,7 @@
 - Julio César Maldonado Acuña  - 2530001
 - Roberto Emiliano Ortiz Cumpian  
 - Ricardo Martin Pugliesse Macias - 2530033
-- Felipe Pinzon Segura  
+- Felipe Pinzon Segura  - 2530495
 - Gael Sebastian Castillo Salazar - 2530240
 - Alexis Manuel Muñoz Aguilar - 2530562
 
@@ -136,3 +128,6 @@ código, esquemas eléctricos, pruebas y conclusiones.
         (tierra común)
 
 ---
+
+## Licencia 📜
+Copyright (c) 2025 Julio 
