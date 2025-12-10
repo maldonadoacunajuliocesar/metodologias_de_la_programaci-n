@@ -1,5 +1,5 @@
 <!-- LOGO / TÍTULO -->
-<p align="center">
+<p align="left">
   <!-- La imagen debe llamarse 'carrito.png' y estar en la misma carpeta que este README -->
   <img src="carrito.png"alt="Carrito ESP32 + L298N" width="220">
 </p>
@@ -53,7 +53,7 @@
 - Roberto Emiliano Ortiz Cumpian  
 - Ricardo Martin Pugliesse Macias - 2530033
 - Felipe Pinzon Segura  
-- Gael Sebastian Castillo Salazar  
+- Gael Sebastian Castillo Salazar - 2530240
 - Alexis Manuel Muñoz Aguilar - 2530562
 
 **Grupo:** IM - 2  
@@ -126,3 +126,4 @@ código, esquemas eléctricos, pruebas y conclusiones.
                |
            ESP32 GND
         (tierra común)
+---
