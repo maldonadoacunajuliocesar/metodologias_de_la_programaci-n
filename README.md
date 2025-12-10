@@ -1,98 +1,56 @@
-<!-- LOGO / TÍTULO -->
-<p align="center">
-  <!-- Cambia esta ruta por la de tu imagen -->
-  <img src="docs/img/carrito.png" alt="Carrito ESP32 + L298N" width="220">
+<!-- TÍTULO + LOGO -->
+<p align="left">
+  <!-- Cambia la ruta por la de tu imagen del carrito -->
+  <img src="docs/img/carrito.png"
+       alt="Carrito logo"
+       width="90"
+       style="vertical-align:middle; margin-right:10px;">
+  <span style="font-size:2.8rem; font-weight:700; color:#0d47a1;">
+    Carrito
+  </span>
 </p>
 
-<h1 align="center" style="color:#0d47a1;">Carrito ESP32 + L298N</h1>
+Nuestro carrito controlado con un **ESP32** y un **L298N**, manejado desde el celular vía **Bluetooth**.
 
-<p align="center" style="color:#1565c0;">
-  Carrito controlado con ESP32, driver L298N y un celular vía Bluetooth.
-</p>
+---
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Plataforma-ESP32-1565c0?style=for-the-badge&logo=espressif&logoColor=white">
-  <img src="https://img.shields.io/badge/Lenguaje-MicroPython-0d47a1?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Driver-L298N-42a5f5?style=for-the-badge">
+<!-- COLABORADORES (BADGES AL ESTILO GITHUB) -->
+<p>
+  <a href="#">
+    <img src="https://img.shields.io/badge/Julio%20César%20Maldonado%20Acuña-collaborator-1565c0?style=flat-square&labelColor=0d47a1&logo=github&logoColor=white">
+  </a>
+  <a href="#">
+    <img src="https://img.shields.io/badge/Roberto%20Emiliano%20Ortiz%20Cumpian-collaborator-1565c0?style=flat-square&labelColor=0d47a1&logo=github&logoColor=white">
+  </a>
+  <a href="#">
+    <img src="https://img.shields.io/badge/Ricardo%20Martin%20Pugliesse%20Macias-collaborator-1565c0?style=flat-square&labelColor=0d47a1&logo=github&logoColor=white">
+  </a>
+  <a href="#">
+    <img src="https://img.shields.io/badge/Felipe%20Pinzon%20Segura-collaborator-1565c0?style=flat-square&labelColor=0d47a1&logo=github&logoColor=white">
+  </a>
+  <a href="#">
+    <img src="https://img.shields.io/badge/Grupo-IM%20--%202-1e88e5?style=flat-square&labelColor=0d47a1">
+  </a>
 </p>
 
 ---
 
-## 👥 Integrantes
+## Descripción
 
-> **Proyecto desarrollado por el equipo:**
-
-- Julio César Maldonado Acuña  
-- Roberto Emiliano Ortiz Cumpian  
-- Ricardo Martin Pugliesse Macias  
-- Felipe Pinzon Segura  
-
-**Grupo:** IM - 2  
-
----
-
-## Descripción 📖
-
-Este proyecto consiste en la construcción y programación de un **carrito controlado por un ESP32**, utilizando un módulo **L298N** para manejar dos motores DC:
+Este proyecto consiste en la construcción y programación de un **carrito controlado por un ESP32**, utilizando un **driver L298N** para manejar dos motores de corriente directa (DC):
 
 - Un motor de **tracción** para avanzar y retroceder.  
 - Un motor de **dirección** para girar las llantas.
 
-El movimiento se controla desde un **teléfono celular** mediante **Bluetooth (BLE tipo UART)**.  
-El ESP32 recibe comandos simples (por ejemplo `F`, `B`, `L`, `R`, `S`) y ajusta la velocidad y sentido de los motores usando **PWM**.
+El control del movimiento se realiza mediante un **teléfono celular** que envía comandos por **Bluetooth (BLE / UART)** al ESP32.  
+El ESP32 interpreta esos comandos y genera señales **PWM** hacia el L298N para ajustar la **velocidad** y el **sentido de giro** de cada motor.
 
 El software está desarrollado en **MicroPython**, aprovechando:
 
-- Módulos de **Bluetooth BLE** para la comunicación con el celular.  
-- **PWM** por hardware para el control de los motores a través del L298N.  
+- Módulos de Bluetooth del ESP32.  
+- PWM por hardware para el control preciso de los motores.  
 
-Este README funciona como **introducción** al resto de la documentación del proyecto:
-código, esquemas eléctricos, pruebas y conclusiones.
-
----
-
-## Hardware utilizado ⚙️
-
-| Componente                  | Función                                         |
-|----------------------------|-------------------------------------------------|
-| ESP32                      | Control principal / procesamiento               |
-| Driver L298N               | Control de dos motores DC (puente H doble)     |
-| 2 Motores DC               | Tracción y dirección del carrito               |
-| Pack 6×AA NiMH (7.2–8 V)   | Fuente de energía para los motores             |
-| Cable USB                  | Alimentación y programación del ESP32          |
-| Celular con app BLE (UART) | Envío de comandos de movimiento                |
-| Chasis de carrito          | Soporte estructural de todos los componentes   |
-| Cables jumper / protoboard | Conexiones eléctricas                          |
+Este README sirve como **introducción** al resto de la documentación del proyecto:
+código, diagramas de conexión, pruebas y posibles mejoras.
 
 ---
-
-## Arquitectura del sistema 🧠
-
-```text
-          CELULAR
-        (App BLE UART)
-               |
-           Bluetooth
-               |
-        +------v-------+
-        |    ESP32     |
-        | MicroPython  |
-        +---+-------+--+
-            |       |
-      PWM Tracción  PWM Dirección
-            |       |
-       +----v-------v----+
-       |      L298N      |
-       |  Puente H x2    |
-       +----+-------+----+
-            |       |
-      Motor Tracción   Motor Dirección
-         (DC)              (DC)
-
-     Pack baterías (6xAA NiMH)
-          +Vmot  y  GND
-               |
-           L298N GND
-               |
-           ESP32 GND
-        (tierra común)
