@@ -1,10 +1,10 @@
 <!-- LOGO / TÍTULO -->
 <p align="center">
-  <!-- Cambia esta ruta por la de tu imagen -->
-  <img src="docs/img/carrito.png" alt="Carrito ESP32 + L298N" width="220">
+  <!-- La imagen debe llamarse 'carrito.png' y estar en la misma carpeta que este README -->
+  <img src="carrito.png"alt="Carrito ESP32 + L298N" width="220">
 </p>
 
-<h1 align="center" style="color:#0d47a1;">Carrito ESP32 + L298N</h1>
+<h1 align="center" style="color:#0d47a1;"> CARRITO BLUETOOOTH </h1>
 
 <p align="center" style="color:#1565c0;">
   Carrito controlado con ESP32, driver L298N y un celular vía Bluetooth.
@@ -51,10 +51,10 @@
 
 - Julio César Maldonado Acuña  - 2530001
 - Roberto Emiliano Ortiz Cumpian  
-- Ricardo Martin Pugliesse Macias  
+- Ricardo Martin Pugliesse Macias - 2530033
 - Felipe Pinzon Segura  
 - Gael Sebastian Castillo Salazar  
-- Alexis Manuel Muñoz Aguilar  
+- Alexis Manuel Muñoz Aguilar - 2530562
 
 **Grupo:** IM - 2  
 
