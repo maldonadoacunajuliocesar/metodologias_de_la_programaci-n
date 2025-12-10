@@ -1,10 +1,18 @@
-<!-- LOGO / TÍTULO -->
+<!-- LOGO + TÍTULO EN LA MISMA LÍNEA (IZQUIERDA) -->
 <p align="left">
-  <!-- La imagen debe llamarse 'carrito.png' y estar en la misma carpeta que este README -->
-  <img src="carrito.png"alt="Carrito ESP32 + L298N" width="220">
-</p>
+  <!-- La imagen debe estar en la misma carpeta que el README -->
+  <img src="carrito.png"
+       alt="Carrito Bluetooth"
+       width="120"
+       style="vertical-align:middle; margin-right:12px;">
 
-<h1 align="center" style="color:#0d47a1;"> CARRITO BLUETOOOTH </h1>
+  <span style="font-size:2.3rem;
+               font-weight:700;
+               color:#0d47a1;
+               vertical-align:middle;">
+    Carrito Bluetooth
+  </span>
+</p>
 
 <p align="center" style="color:#1565c0;">
   Carrito controlado con ESP32, driver L298N y un celular vía Bluetooth.
@@ -126,4 +134,5 @@ código, esquemas eléctricos, pruebas y conclusiones.
                |
            ESP32 GND
         (tierra común)
+
 ---
