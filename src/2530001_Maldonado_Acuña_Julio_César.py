@@ -434,4 +434,4 @@ except:
 #    https://www.programiz.com/python-programming/function
 
 # REPOSITORIO DE GITHUB
-
+# https://github.com/maldonadoacunajuliocesar/metodologias_de_la_programaci-n/blob/main/src/2530001_Maldonado_Acu%C3%B1a_Julio_C%C3%A9sar.py
